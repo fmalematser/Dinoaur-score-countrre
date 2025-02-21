@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Score Counter</title>
+    <style>
+        @font-face {
+            font-family: 'PressStart2P';
+            src: url('https://fonts.gstatic.com/s/pressstart2p/v8/e3t4euO8T-267oIAQAu6jDQyK0nSBmJ-IZGslH2rS_0.woff2') format('woff2');
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f7f7f7;
+            font-family: 'PressStart2P', sans-serif;
+        }
+        .score {
+            font-size: 24px;
+            color: #535353;
+        }
+    </style>
+</head>
+<body>
+    <div class="score" id="score">10000</div>
+    <script>
+        let score = 10000;
+        const maxScore = 500000000000;
+        const scoreElement = document.getElementById('score');
+        
+        function updateScore() {
+            if (score < maxScore) {
+                score += 10; // Dino game increases by 10 per tick
+                scoreElement.textContent = score;
+                requestAnimationFrame(updateScore);
+            }
+        }
+        
+        updateScore();
+    </script>
+</body>
+</html>
