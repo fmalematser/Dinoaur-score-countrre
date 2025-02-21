@@ -32,9 +32,9 @@
         
         function updateScore() {
             if (score < maxScore) {
-                score += 10; // Dino game increases by 10 per tick
+                score += 2; // Increase by 2 every second, so it reaches 10 in 5 seconds
                 scoreElement.textContent = score;
-                requestAnimationFrame(updateScore);
+                setTimeout(updateScore, 1000); // Update every second
             }
         }
         
